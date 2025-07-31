@@ -155,6 +155,36 @@ if (user) {
 }
 else{
     console.log('Welcome, Guest!');
+    
 }
 
 
+
+
+let sege =31;
+function greeting(){
+    console.log('Hello world')
+}
+greeting();
+
+
+function boss(name, age) {
+    console.log(`My name is ${name} and I am ${age} years old.`);
+}
+boss('Henry', 25);
+
+function calculatecirclearea(radius){
+    console.log(3.14*radius*radius);
+}
+
+calculatecirclearea(5);
+
+
+function areaofRectangle(length, width) {
+    console.log('area is equal to' ,length * width);
+}
+areaofRectangle(10, 7);
+
+
+let squarearea= (l,b) => {console.log(l * b);}
+squarearea(5, 5);
