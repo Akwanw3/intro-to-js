@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class workt</title>
+</head>
+<body>
+    <style>
+       .first {
+            color: red;
+            background-color: blue;
+            
+        }
+        .second {
+            color: blue;
+            background-color: yellow;
+        
+        }
+        .third {
+            background-color: red;
+            color: green;
+        }
+        .imga{
+            display: none;
+        }
+        .text-important {
+            font-weight: bold;
+            color: green;
+            font-size: large;
+        }
+       
+    </style>
+    <p id="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est aut laboriosam vitae vel totam autem incidunt dolores iusto ab pariatur maiores atque praesentium quidem sequi perferendis necessitatibus, et repudiandae esse.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae maiores dolorum tenetur, ducimus cumque a, eveniet sunt quo nisi harum sint? Blanditiis, fugiat doloremque? Minima voluptate eveniet odio facere fuga.</p>
+    <button id="chgBtn">change colour</button>
+    <br><br><br>
+
+    <img src="/bitCrunch TEam Updates (4).jpg" alt="dfdd" id="myimg" style="width: 200px; height: 200px;">
+    <button id="imgBtn">Hide image</button>
+    <br><br><br>
+
+    <p id="imp-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur ut obcaecati quisquam commodi repudiandae fugiat laudantium quos ex numquam explicabo quo incidunt accusamus dolor, blanditiis, soluta facere libero omnis nesciunt.</p>
+    <button id="fontBtn">Make this text important</button>
+
+    <script>
+        let para = document.getElementById("para");
+        let chgBtn = document.getElementById("chgBtn");
+        let myimg = document.getElementById("myimg");
+        let imgBtn = document.getElementById("imgBtn");
+        let impText = document.getElementById("imp-text");
+        let fontBtn = document.getElementById("fontBtn");
+
+        para.classList.add("first");
+        chgBtn.addEventListener("click", function() {
+            
+            
+            if (para.classList.contains("first")) {
+                para.classList.remove("first");
+                para.classList.add("second");
+            } else if (para.classList.contains("second")) {
+                para.classList.remove("second");
+                para.classList.add("third");
+            } else {
+                para.classList.remove("third");
+                para.classList.add("first");
+            }
+        });
+
+        imgBtn.addEventListener("click", function() {
+            myimg.classList.toggle("imga");
+        });
+
+        fontBtn.addEventListener("click", function() {
+            impText.classList.toggle("text-important");
+        });
+    </script>
+</body>
+</html>
