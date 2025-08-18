@@ -42,8 +42,10 @@ function initAccordion() {
 function initloader() {
     let btn = document.querySelector('.btn-loading');
     let spinner = document.getElementById('spin');
+    let text = document.getElementById('text')
    
     btn.addEventListener('click', function() {
         spinner.classList.toggle('loading')
+        text.classList.toggle('text')
 })
 }

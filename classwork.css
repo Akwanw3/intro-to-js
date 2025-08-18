@@ -413,6 +413,8 @@ padding: 20px;
     border: none;
     border-radius: 10px;
     transition: background-color 0.3s ease;
+    width: 100px;
+    height: 50px;
 }
 .btn-loading:hover{
     background-color: seagreen;
@@ -435,9 +437,6 @@ padding: 20px;
     display: block;
 }
 
-.animate span{
-    visibility: hidden
-}
 
 .btn-loading .loading{
     position: absolute;
@@ -450,9 +449,13 @@ padding: 20px;
    border-top: white;
    border-radius: 50%;
    animation: spin 1s linear  infinite ;
-   display: ;
+   display: block;
+   z-index: 5;
 }
     
+.text{
+    display: none;
+}
 
 @keyframes spin {
     to{
