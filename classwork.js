@@ -6,12 +6,14 @@ function initFlipCards() {
         cards[i].addEventListener('click', function() {
             this.classList.add('flipped');
         });
+        }
     }
-}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     initFlipCards();
     initAccordion();
+    initloader();
 })
 
 //Accordion section//
@@ -35,4 +37,13 @@ function initAccordion() {
         });
         
     }
+}
+
+function initloader() {
+    let btn = document.querySelector('.btn-loading');
+    let spinner = document.getElementById('spin');
+   
+    btn.addEventListener('click', function() {
+        spinner.classList.toggle('loading')
+})
 }
