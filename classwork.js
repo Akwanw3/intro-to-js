@@ -1,38 +1,38 @@
-function initImageComparison() {
-            var container = document.getElementById('imageComparison');
-            var afterImage = container.querySelector('.comparison-after');
-            var slider = container.querySelector('.comparison-slider');
-            var isDragging = false;
+//flip cards//
 
-            function startDrag(e) {
-                isDragging = true;
-                container.style.cursor = 'ew-resize';
-                e.preventDefault();
+function initFlipCards() {
+    let cards = document.querySelectorAll('.flip-card');
+    for(let i=0; i<cards.length; i++) {
+        cards[i].addEventListener('click', function() {
+            this.classList.add('flipped');
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initFlipCards();
+    initAccordion();
+})
+
+//Accordion section//
+function initAccordion() {
+    let accordionItems = document.querySelectorAll('.accordion-item');
+    for(let i=0; i<accordionItems.length; i++) {
+        let item = accordionItems[i];
+        let header = item.querySelector('.accordion-header');
+
+        header.addEventListener('click', function() {
+            let currentItem = this.parentNode;
+            let isActive = currentItem.classList.contains('active');
+
+            for(let j=0; j<accordionItems.length; j++){
+                accordionItems[j].classList.remove('active');
             }
-
-            function drag(e) {
-                if (!isDragging) return;
-
-                var rect = container.getBoundingClientRect();
-                var x = (e.type.indexOf('touch') !== -1 ? e.touches[0].clientX : e.clientX) - rect.left;
-                var percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-
-                afterImage.style.clipPath = 'polygon(0 0, ' + percentage + '% 0, ' + percentage + '% 100%, 0 100%)';
-                slider.style.left = percentage + '%';
+            if(!isActive) {
+                currentItem.classList.add('active');
             }
-
-            function stopDrag() {
-                isDragging = false;
-                container.style.cursor = 'ew-resize';
-            }
-
-            container.addEventListener('mousedown', startDrag);
-            container.addEventListener('mousemove', drag);
-            container.addEventListener('mouseup', stopDrag);
-            container.addEventListener('mouseleave', stopDrag);
-
-            // Touch events
-            container.addEventListener('touchstart', startDrag);
-            container.addEventListener('touchmove', drag);
-            container.addEventListener('touchend', stopDrag);
-        }
+            
+        });
+        
+    }
+}
