@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning Quest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 JavaScript Learning Quest</h1>
+            <p>Master JavaScript fundamentals through interactive exercises</p>
+        </header>
+
+        <nav>
+            <button class="nav-btn active" onclick="showPage('variables')">Variables & Data Types</button>
+            <button class="nav-btn" onclick="showPage('arrays')">Arrays & Loops</button>
+            <button class="nav-btn" onclick="showPage('objects')">Objects</button>
+            <button class="nav-btn" onclick="showPage('functions')">Functions</button>
+            <button class="nav-btn" onclick="showPage('dom')">DOM Manipulation</button>
+            <button class="nav-btn" onclick="showPage('events')">Events</button>
+            <button class="nav-btn" onclick="showPage('quiz')">Final Quiz</button>
+        </nav>
+
+        <!-- Variables & Data Types Page -->
+        <div id="variables" class="page active">
+            <h2>🎯 Variables, Data Types & Basic Operators</h2>
+            
+            <div class="exercise-card">
+                <h3>Exercise 1: Variable Calculator</h3>
+                <p>Create a simple calculator using variables and basic operators.</p>
+                
+                <div class="input-group">
+                    <label>Number 1:</label>
+                    <input type="number" id="num1" placeholder="Enter first number">
+                </div>
+                
+                <div class="input-group">
+                    <label>Number 2:</label>
+                    <input type="number" id="num2" placeholder="Enter second number">
+                </div>
+                
+                <div class="input-group">
+                    <label>Operation:</label>
+                    <select id="operation">
+                        <option value="add">Addition (+)</option>
+                        <option value="subtract">Subtraction (-)</option>
+                        <option value="multiply">Multiplication (×)</option>
+                        <option value="divide">Division (÷)</option>
+                        <option value="modulus">MOD</option>
+                    </select>
+                </div>
+                
+                <button onclick="calculateResult()">Calculate</button>
+                <button onclick="clearCalculator()">Clear</button>
+                
+                <div id="calc-output" class="output"></div>
+            </div>
+
+            <div class="exercise-card">
+                <h3>Exercise 2: Data Type Explorer</h3>
+                <p>Enter different values and see their data types!</p>
+                
+                <div class="input-group">
+                    <input type="text" id="dataInput" placeholder="Enter any value (try: 42, 'hello', true, etc.)">
+                </div>
+                
+                <button onclick="exploreDataType()">Explore Data Type</button>
+                
+                <div id="type-output" class="output"></div>
+            </div>
+        </div>
+
+        <!-- Arrays & Loops Page -->
+        <div id="arrays" class="page">
+            <h2>📚 Arrays, Methods & Loops</h2>
+            
+            <div class="exercise-card">
+                <h3>Exercise 1: Student Grade Manager</h3>
+                <p>Manage student grades using array methods.</p>
+                
+                <div class="input-group">
+                    <input type="number" id="gradeInput" placeholder="Enter a grade (0-100)" min="0" max="100">
+                    <button onclick="addGrade()">Add Grade</button>
+                </div>
+                
+                <div class="grid">
+                    <button onclick="showAllGrades()">Show All Grades</button>
+                    <button onclick="calculateAverage()">Calculate Average</button>
+                    <button onclick="findHighestGrade()">Find Highest</button>
+                    <button onclick="findFailingGrades()">Find Failing (<60)</button>
+                    <button onclick="removeLastGrade()">Remove Last</button>
+                    <button onclick="clearAllGrades()">Clear All</button>
+                </div>
+                
+                <div id="grades-output" class="output"></div>
+            </div>
+
+            <div class="exercise-card">
+                <h3>Exercise 2: Array Method Practice</h3>
+                <p>Practice with map, filter, and forEach methods.</p>
+                
+                <button onclick="demonstrateArrayMethods()">Run Array Methods Demo</button>
+                <div id="array-methods-output" class="output"></div>
+            </div>
+        </div>
+
+        <!-- Objects Page -->
+        <div id="objects" class="page">
+            <h2>🏗️ Objects & Properties</h2>
+            
+            <div class="exercise-card">
+                <h3>Exercise 1: Student Profile Creator</h3>
+                <p>Create and manage student profiles using objects.</p>
+                
+                <div class="input-group">
+                    <input type="text" id="studentName" placeholder="Student Name">
+                </div>
+                <div class="input-group">
+                    <input type="number" id="studentAge" placeholder="Age">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="studentSubject" placeholder="Favorite Subject">
+                </div>
+                <div class="input-group">
+                    <input type="number" id="studentGPA" placeholder="GPA (0.0-4.0)" step="0.1" min="0" max="4">
+                </div>
+                
+                <button onclick="createStudentProfile()">Create Profile</button>
+                <button onclick="updateStudentInfo()">Update Info</button>
+                <button onclick="displayStudentInfo()">Display Info</button>
+                
+                <div id="student-profile-output" class="output"></div>
+            </div>
+
+            <div class="exercise-card">
+                <h3>Exercise 2: Nested Objects Practice</h3>
+                <p>Work with complex nested object structures.</p>
+                
+                <button onclick="createSchoolData()">Create School Data</button>
+                <button onclick="accessNestedData()">Access Nested Information</button>
+                
+                <div id="nested-objects-output" class="output"></div>
+            </div>
+        </div>
+
+        <!-- Functions Page -->
+        <div id="functions" class="page">
+            <h2>⚙️ Functions & Callbacks</h2>
+            
+            <div class="exercise-card">
+                <h3>Exercise 1: Function Types Demo</h3>
+                <p>Compare function declarations, arrow functions, and callbacks.</p>
+                
+                <div class="input-group">
+                    <input type="text" id="messageInput" placeholder="Enter a message to process">
+                </div>
+                
+                <div class="grid">
+                    <button onclick="regularFunction()">Regular Function</button>
+                    <button onclick="arrowFunctionDemo()">Arrow Function</button>
+                    <button onclick="callbackDemo()">Callback Function</button>
+                    <button onclick="higherOrderDemo()">Higher-Order Function</button>
+                </div>
+                
+                <div id="functions-output" class="output"></div>
+            </div>
+
+            <div class="exercise-card">
+                <h3>Exercise 2: Custom Calculator Functions</h3>
+                <p>Create reusable calculator functions with different approaches.</p>
+                
+                <div class="input-group">
+                    <input type="number" id="funcNum1" placeholder="First number">
+                    <input type="number" id="funcNum2" placeholder="Second number">
+                </div>
+                
+                <button onclick="runCalculatorFunctions()">Run All Calculator Functions</button>
+                
+                <div id="calculator-functions-output" class="output"></div>
+            </div>
+        </div>
+
+        <!-- DOM Manipulation Page -->
+        <div id="dom" class="page">
+            <h2>🎨 DOM Manipulation</h2>
+            
+            <div class="exercise-card">
+                <h3>Exercise 1: Dynamic Content Manager</h3>
+                <p>Practice DOM selectors and content manipulation.</p>
+                
+                <div class="input-group">
+                    <input type="text" id="contentInput" placeholder="Enter new content">
+                </div>
+                
+                <div class="grid">
+                    <button onclick="changeTitle()">Change Title</button>
+                    <button onclick="addNewElement()">Add Element</button>
+                    <button onclick="changeStyles()">Change Styles</button>
+                    <button onclick="toggleVisibility()">Toggle Visibility</button>
+                </div>
+                
+                <div id="dynamic-content">
+                    <h3 id="dynamic-title">Original Title</h3>
+                    <p id="dynamic-text">This text can be changed dynamically!</p>
+                    <div id="element-container"></div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <h3>Exercise 2: Element Attribute Manager</h3>
+                <p>Practice changing attributes and classes.</p>
+                
+                <div class="input-group">
+                    <input type="text" id="classInput" placeholder="Enter CSS class name">
+                </div>
+                
+                <button onclick="addCustomClass()">Add Class</button>
+                <button onclick="removeCustomClass()">Remove Class</button>
+                <button onclick="toggleCustomClass()">Toggle Class</button>
+                
+                <div id="attribute-demo" class="card">
+                    <h4>Attribute Demo Box</h4>
+                    <p>This box will change based on your actions!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Page -->
+        <div id="events" class="page">
+            <h2>⚡ DOM Events</h2>
+            
+            <div class="exercise-card">
+                <h3>Exercise 1: Interactive Event Playground</h3>
+                <p>Practice different types of event handlers.</p>
+                
+                <div class="grid">
+                    <button id="clickBtn" class="card">Click Me!</button>
+                    <div class="card">
+                        <label>Type here (keyup event):</label>
+                        <input type="text" id="keyupInput" placeholder="Start typing...">
+                        <div id="keyup-display"></div>
+                    </div>
+                    <div class="card">
+                        <label>Mouse over this area:</label>
+                        <div id="mouseArea" style="background: #f0f0f0; height: 100px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                            Mouse Area
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="events-log" class="output">Event log will appear here...</div>
+            </div>
+
+            <div class="exercise-card">
+                <h3>Exercise 2: Interactive Form</h3>
+                <p>Create a form with validation using event handlers.</p>
+                
+                <form id="interactive-form">
+                    <div class="input-group">
+                        <input type="text" id="form-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="form-email" placeholder="Your Email" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="form-message" placeholder="Your Message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit">Submit Form</button>
+                </form>
+                
+                <div id="form-output" class="output"></div>
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quiz" class="page">
+            <h2>🏆 Final JavaScript Quiz</h2>
+            
+            <div class="exercise-card">
+                <h3>Test Your Knowledge!</h3>
+                <p>Answer these questions to complete your JavaScript journey.</p>
+                
+                <div class="progress-bar">
+                    <div id="quiz-progress" class="progress"></div>
+                </div>
+                
+                <div id="quiz-container">
+                    <div id="question-container">
+                        <h4 id="question-text">Click 'Start Quiz' to begin!</h4>
+                        <div id="options-container"></div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <button id="start-quiz" onclick="startQuiz()">Start Quiz</button>
+                        <button id="next-question" onclick="nextQuestion()" style="display: none;">Next Question</button>
+                        <button id="finish-quiz" onclick="finishQuiz()" style="display: none;">Finish Quiz</button>
+                    </div>
+                </div>
+                
+                <div id="quiz-results" class="output"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+11
